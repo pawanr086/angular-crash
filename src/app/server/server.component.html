@@ -1,0 +1,32 @@
+<div class="jumbotron container serverDetails">
+    <!-- <div>Here is the {{'Server'}} details with ID is {{ serverId }} and Status is {{ getServerStatus() }}</div> -->
+
+    <div>
+        <label>Server Name: </label>
+        <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+        <input type="text" class="form-control" [(ngModel)]="newServerName">
+        <!-- <div> New Server Name is {{ newServerName }} </div> -->
+    </div>
+    <div>
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()"> Add New</button></div>
+    
+    <!-- <div [hidden] = "!displayServerDetails">
+            <div>Here is the {{'Server'}} details</div>
+            <div>{{ newServerStatus }}</div>
+        </div>           -->
+    <!-- Above was using Property Binding -->
+
+
+    <div *ngIf = "displayServerDetails; else noServers">        
+    <!-- Above was using In-Built Directives -->
+        <div>Here is the {{'Server'}} details</div>
+        <div>{{ newServerStatus }}</div> 
+    </div>       
+    <ng-template #noServers>
+        <div>No Servers created Yet</div>
+    </ng-template>
+
+
+    <!-- <div [innerText] = "allowNewServer" > </div> -->
+</div>
